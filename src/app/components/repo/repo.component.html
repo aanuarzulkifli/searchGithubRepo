@@ -1,0 +1,68 @@
+<div class="container border" style="background-color: white">
+  <form action="">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search Github Repository.." [(ngModel)]="repo" name="repo" (keyup.enter)="searchRepo()">
+    </div>
+  </form>
+  <table class="table table-hover">
+    <thead>
+      <th *ngIf="total">
+        <h4><b>{{total.total_count}} repository results</b></h4>
+      </th>
+    </thead>
+    <tr *ngFor="let repo of repos">
+      <td>
+        <div class="row">
+          <div class="col-sm-8">
+            <a class="" href="{{repo.html_url}}" target="_blank">
+              <h5><b>{{repo.full_name}}</b></h5>
+            </a>
+          </div>
+          <div class="col-sm-2">
+            <span><i class="fas fa-circle"></i> {{repo.language}}</span>
+          </div>
+          <div class="col">
+            <span><i class="fas fa-star"></i> {{repo.stargazers_count}}</span>
+          </div>
+        </div>
+        <div>
+          {{repo.description}}
+        </div>
+        <br>
+        Updated on {{repo.updated_at|date:'EEE MMM dd yyyy'}}
+        <br>
+        <br>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+  <!-- <div class="content" *ngIf="total">
+    <div>
+      <h4><b>{{total.total_count}} repository results</b></h4>
+    </div>
+  </div>
+  <div class="content" *ngFor="let repo of repos">
+    <div class="row">
+      <div class="col-sm-9">
+        <a class="" href="{{repo.html_url}}" target="_blank">
+          <b>{{repo.full_name}}</b>
+        </a>
+      </div>
+      <div class="col-sm-2">
+        <span><i class="fas fa-circle"></i> {{repo.language}}</span>
+      </div>
+      <div class="col">
+        <span><i class="fas fa-star"></i> {{repo.stargazers_count}}</span>
+      </div>
+    </div>
+    <br>
+    <div class="col">
+      {{repo.description}}
+    </div>
+    <br>
+    <div class="col">
+      {{repo.updated_at}}
+    </div>
+    <br> -->
+</div>
